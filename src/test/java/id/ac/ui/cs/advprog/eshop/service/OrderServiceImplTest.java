@@ -99,10 +99,10 @@ class OrderServiceTest {
     @Test
     void testUpdateStatusInvalidOrderId() {
         UUID dummyId = UUID.fromString("00000000-0000-0000-0000-000000000000");
-        doReturn(null).when(orderRepository).findById(dummyId);
+        doReturn(null).when(orderRepository).findById(dummyId.toString());
 
         assertThrows(NoSuchElementException.class,
-                () -> orderService.updateStatus(dummyId, OrderStatus.SUCCESS.getValue()));
+                () -> orderService.updateStatus(dummyId.toString(), OrderStatus.SUCCESS.getValue()));
 
         verify(orderRepository, times(0)).save(any(Order.class));
     }
@@ -119,9 +119,9 @@ class OrderServiceTest {
     @Test
     void testFindByIdIfIdNotFound() {
         UUID dummyId = UUID.fromString("00000000-0000-0000-0000-000000000000");
-        doReturn(null).when(orderRepository).findById(dummyId);
+        doReturn(null).when(orderRepository).findById(dummyId.toString());
 
-        assertNull(orderService.findById(dummyId));
+        assertNull(orderService.findById(dummyId.toString()));
     }
 
     @Test
