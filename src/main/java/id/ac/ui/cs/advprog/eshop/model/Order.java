@@ -15,8 +15,6 @@ public class Order {
     List<Product> products;
     Long orderTime;
     String author;
-
-    @Getter
     String status;
 
     public Order(String id, List<Product> products, Long orderTime, String author) {
@@ -35,6 +33,15 @@ public class Order {
     public Order(String id, List<Product> products, Long orderTime, String author, String status) {
         this(id, products, orderTime, author);
 
+        String[] statusList = {"WAITING_PAYMENT", "FAILED", "SUCCESS", "CANCELLED"};
+        if (Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))) {
+            throw  new IllegalArgumentException();
+        } else {
+            this.status = status;
+        }
+    }
+
+    public void setStatus(String status) {
         String[] statusList = {"WAITING_PAYMENT", "FAILED", "SUCCESS", "CANCELLED"};
         if (Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))) {
             throw  new IllegalArgumentException();
