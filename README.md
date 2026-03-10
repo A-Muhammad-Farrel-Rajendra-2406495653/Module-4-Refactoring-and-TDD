@@ -49,3 +49,16 @@ Masih berhubungan dnegan poin 2, suatu blok kode masih melakukan terlalu banyak 
 Akibatnya, jika kita melakukan suatu penambahan atau perubahan, besar kemungkinan akan ada banyak hal lain yang terdampak dan mengalami error.
 Selain itu, jika terjadi error, proses debug juga jadi lebih sulit. 
 Tentunya hal itu tidak baik untuk maintainability proyek.
+
+---
+# Reflection 4
+1. Flow TDD ini berguna bagi saya karena memaksa saya mendefinisika dahulu apa ekspektasi dari kode yang saya ingin buat sebelum logika aslinya ditulis, sehingga bisa meminimalkan kesalahan sejak awal.
+Dengan urutan siklus Red-Green-Refactor, logika yang ditulis suda memiliki tujuan dan bisa langsung diuji.
+Penggunaan mocking dalam tes tersebut juga menciptakan kode yang lebih rapi dan modular karena ketergantungan antar komponen terpisah dengan baik.
+
+2. Tes ini sudah memenuhi keempat komponen FIRST principle:
+Fast: cepat karena dijalankan menggunakan Mockito tanpa database asli.
+Independent: tidak ada ketergantungan antar test karena data diatur ulang di @BeforeEach.
+Repeatable: hasilnya sudah jelas (deterministik) dan bisa digunakan di manapun.
+Self-Validating: test dapat menyimpulkan keberhasilan secara otomatis tanpa inspeksi manual.
+Timely: test ditulis dahulu sebelum logic.
