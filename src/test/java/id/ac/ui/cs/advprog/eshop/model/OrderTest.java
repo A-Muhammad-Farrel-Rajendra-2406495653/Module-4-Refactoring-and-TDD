@@ -46,6 +46,7 @@ public class OrderTest {
         Assertions.assertEquals(2, order.getProducts().size());
         Assertions.assertEquals("Sampo Cap Bambang", order.getProducts().get(0).getProductName());
         Assertions.assertEquals("Sabun Cap Usep", order.getProducts().get(1).getProductName());
+
         Assertions.assertEquals("13652556-012a-4c07-b546-54eb1396d79b", order.getId());
         Assertions.assertEquals(1708560000L, order.getOrderTime());
         Assertions.assertEquals("Safira Sudrajat", order.getAuthor());
